@@ -33,8 +33,8 @@ export default function Main() {
                     <div className="card-body text-start">
                         <ul>
                             {
-                                movies.map((thisMovie) => (
-                                    <li className="my-2">
+                                movies.map((thisMovie, i) => (
+                                    <li key={i} className="my-2">
                                         title: '{thisMovie.title}'; genre: '{thisMovie.genre}'
                                     </li>
                                 ))
