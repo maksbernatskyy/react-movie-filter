@@ -27,7 +27,11 @@ export default function Main() {
                         {/* Form */}
                         <form>
                             {/* Select of genres */}
-                            <select className="form-select">
+                            <select 
+                                className="form-select"
+                                value={genre}
+                                onChange={(e) => setGenre(e.target.value)}
+                            >
                                 <option defaultValue={0}>Select the genre of movie</option>
                                 <option value="1">Fantascienza</option>
                                 <option value="2">Thriller</option>
