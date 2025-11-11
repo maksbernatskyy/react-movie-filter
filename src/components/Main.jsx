@@ -20,6 +20,13 @@ export default function Main() {
     {/* Function onSubmit */}
     const handleClick = (e) => {
         e.preventDefault()
+
+        const addMovie = {
+            title: newMovie,
+            genre: 'New movie'
+        }
+
+        setFiltredMovie([...filtredMovie, addMovie])
     }
     
 
