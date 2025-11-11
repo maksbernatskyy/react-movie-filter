@@ -10,6 +10,9 @@ export default function Main() {
 
     {/* State of filtred movies */}
     const [filtredMovie, setFiltredMovie] = useState(movies)
+
+    {/* State of genres */}
+    const [genre, setGenre] = useState(0)
     
     return (
         <>
