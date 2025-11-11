@@ -23,9 +23,10 @@ export default function Main() {
     {/* useEffect for Search */}
     useEffect( () => {
         
-
-
-    })
+        const speficMovie = movies.filter((thisMovie) => titleMovie.toLowerCase() === thisMovie.title.toLowerCase())
+        setFiltredMovie(speficMovie)
+        
+    }, [titleMovie])
 
     {/* Function onSubmit */}
     const handleClick = (e) => {
@@ -89,6 +90,8 @@ export default function Main() {
                             <input 
                                 type="search"
                                 placeholder="Search a movie" 
+                                value={titleMovie}
+                                onChange={(e) => setTitleMovie(e.target.value)}
                             />
 
                             {/* Adding movie */}
