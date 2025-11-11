@@ -12,16 +12,18 @@ export default function Main() {
     const [filtredMovie, setFiltredMovie] = useState(movies)
 
     {/* State of genres */}
-    const [genre, setGenre] = useState(0)
+    const [genre, setGenre] = useState('0')
     
 
 
     {/* useEffect */}
     useEffect( () => {
-        if (genre === 0) {
-            setFiltredMovie(filtredMovie)
+
+        if (genre === '0') {
+            setFiltredMovie(movies)
+
         } else {
-            const updateList = filtredMovie.filter((thisMovie) => genre === thisMovie.genre)
+            const updateList = movies.filter((thisMovie) => genre === thisMovie.genre)
             setFiltredMovie(updateList)
         }
 
@@ -46,7 +48,7 @@ export default function Main() {
                                 value={genre}
                                 onChange={(e) => setGenre(e.target.value)}
                             >
-                                <option defaultValue={0}>Select the genre of movie</option>
+                                <option value='0'>Select the genre of movie</option>
                                 <option value="Fantascienza">Fantascienza</option>
                                 <option value="Thriller">Thriller</option>
                                 <option value="Romantico">Romantico</option>
