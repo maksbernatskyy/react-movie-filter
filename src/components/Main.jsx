@@ -14,6 +14,20 @@ export default function Main() {
     {/* State of genres */}
     const [genre, setGenre] = useState(0)
     
+
+
+    {/* useEffect */}
+    useEffect( () => {
+        if (genre === 0) {
+            setFiltredMovie(filtredMovie)
+        } else {
+            const updateList = filtredMovie.filter((thisMovie) => genre === thisMovie.genre)
+            setFiltredMovie(updateList)
+        }
+
+    }, [genre] )
+    
+
     return (
         <>
         <main className="py-3">
@@ -33,10 +47,10 @@ export default function Main() {
                                 onChange={(e) => setGenre(e.target.value)}
                             >
                                 <option defaultValue={0}>Select the genre of movie</option>
-                                <option value="1">Fantascienza</option>
-                                <option value="2">Thriller</option>
-                                <option value="3">Romantico</option>
-                                <option value="4">Azione</option>
+                                <option value="Fantascienza">Fantascienza</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Romantico">Romantico</option>
+                                <option value="Azione">Azione</option>
                             </select>
                         </form>
                     </div>
@@ -45,7 +59,7 @@ export default function Main() {
                     <div className="card-body">
                         <ul>
                             {
-                                movies.map((thisMovie, i) => (
+                                filtredMovie.map((thisMovie, i) => (
                                     <li key={i} className="my-2"> 
                                         Title: "{thisMovie.title}"; Genre: "{thisMovie.genre}" 
                                     </li>
