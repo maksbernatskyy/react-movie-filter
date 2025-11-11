@@ -17,6 +17,16 @@ export default function Main() {
     {/* State of newMovie */}
     const [newMovie, setNewMovie] = useState('')
 
+    {/* State of Search of title */}
+    const [titleMovie, setTitleMovie] = useState('')
+
+    {/* useEffect for Search */}
+    useEffect( () => {
+        
+
+
+    })
+
     {/* Function onSubmit */}
     const handleClick = (e) => {
         e.preventDefault()
@@ -26,12 +36,15 @@ export default function Main() {
             genre: 'New movie'
         }
 
-        setFiltredMovie([...filtredMovie, addMovie])
+        if (newMovie.length !== 0) {
+            setFiltredMovie([...filtredMovie, addMovie])
+        } 
+        
     }
     
 
 
-    {/* useEffect */}
+    {/* useEffect for genre */}
     useEffect( () => {
 
         if (genre === '0') {
@@ -71,6 +84,12 @@ export default function Main() {
                                 <option value="Azione">Azione</option>
                                 <option value="New movie">New movie</option>
                             </select>
+
+                            {/* Search of title */}
+                            <input 
+                                type="search"
+                                placeholder="Search a movie" 
+                            />
 
                             {/* Adding movie */}
                             <input
