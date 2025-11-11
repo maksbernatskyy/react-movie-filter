@@ -8,6 +8,23 @@ export default function Main() {
     {/* Array of movies */}
     <movies />
 
+    {/* State movie */}
+    const [movie, setMovie] = useState(movies)
+
+    {/* State genre */}
+    const [genreSelect, setGenreSelect] = useState(0)
+    
+    {/* UseEffect */}
+    useEffect( () => {
+        if (genreSelect === 0) {
+            setMovie(movie)
+
+        } else {
+            const movieFilter = movies.filter((thisMovie) => movie.genre === genreSelect)
+            setGenreSelect(movieFilter)
+        }
+    }, [genreSelect] )
+
     return (
         <>
         <main className="py-3">
@@ -19,7 +36,11 @@ export default function Main() {
                     {/* Card Top */}
                     <div className="card-top">
                         <form>
-                            <select className="form-select">
+                            <select 
+                                className="form-select"
+                                value={genreSelect}
+                                onChange={(e) => setGenreSelect(e.target.value)}
+                            >
                                 <option defaultValue={0}>Select the genre of movie</option>
                                 <option value="1">Fantascienza</option>
                                 <option value="2">Thriller</option>
