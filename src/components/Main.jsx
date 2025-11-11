@@ -7,6 +7,9 @@ export default function Main() {
 
     {/* Array of movies */}
     <movies />
+
+    {/* State of filtred movies */}
+    const [filtredMovie, setFiltredMovie] = useState(movies)
     
     return (
         <>
@@ -22,7 +25,7 @@ export default function Main() {
                         <form>
                             {/* Select of genres */}
                             <select className="form-select">
-                                <option defaultValue={0}>Selecte the genre of movie</option>
+                                <option defaultValue={0}>Select the genre of movie</option>
                                 <option value="1">Fantascienza</option>
                                 <option value="2">Thriller</option>
                                 <option value="3">Romantico</option>
@@ -33,7 +36,15 @@ export default function Main() {
 
                     {/* Card Bottom */}
                     <div className="card-body">
-
+                        <ul>
+                            {
+                                movies.map((thisMovie, i) => (
+                                    <li key={i} className="my-2"> 
+                                        Title: "{thisMovie.title}"; Genre: "{thisMovie.genre}" 
+                                    </li>
+                                ))
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>
