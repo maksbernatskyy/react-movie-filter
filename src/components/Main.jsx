@@ -4,67 +4,11 @@ import { useState, useEffect } from "react"
 import movies from "../assets/movies"
 
 export default function Main() {
-    
+
     {/* Array of movies */}
     <movies />
-
-    {/* State movie */}
-    const [movie, setMovie] = useState(movies)
-
-    {/* State genre */}
-    const [genreSelect, setGenreSelect] = useState(0)
     
-    {/* UseEffect */}
-    useEffect( () => {
-        if (genreSelect === 0) {
-            setMovie(movie)
-
-        } else {
-            const movieFilter = movies.filter((thisMovie) => movie.genre === genreSelect)
-            setGenreSelect(movieFilter)
-        }
-    }, [genreSelect] )
-
-    return (
-        <>
-        <main className="py-3">
-            <div className="container text-center">
-
-                {/* Card */}
-                <div className="card p-2 w-50">
-
-                    {/* Card Top */}
-                    <div className="card-top">
-                        <form>
-                            <select 
-                                className="form-select"
-                                value={genreSelect}
-                                onChange={(e) => setGenreSelect(e.target.value)}
-                            >
-                                <option defaultValue={0}>Select the genre of movie</option>
-                                <option value="1">Fantascienza</option>
-                                <option value="2">Thriller</option>
-                                <option value="3">Romantico</option>
-                                <option value="4">Azione</option>
-                            </select>
-                        </form>
-                    </div>
-
-                    {/* Card Body */}
-                    <div className="card-body text-start">
-                        <ul>
-                            {
-                                movies.map((thisMovie, i) => (
-                                    <li key={i} className="my-2">
-                                        title: '{thisMovie.title}'; genre: '{thisMovie.genre}'
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </main>
-        </>
-    )
+    
+       
+    
 }
