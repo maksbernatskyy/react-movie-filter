@@ -13,6 +13,14 @@ export default function Main() {
 
     {/* State of genres */}
     const [genre, setGenre] = useState('0')
+
+    {/* State of newMovie */}
+    const [newMovie, setNewMovie] = useState('')
+
+    {/* Function onSubmit */}
+    const handleClick = (e) => {
+        e.preventDefault()
+    }
     
 
 
@@ -41,7 +49,8 @@ export default function Main() {
                     {/* Card Top */}
                     <div className="card-top">
                         {/* Form */}
-                        <form>
+                        <form onSubmit={handleClick}>
+
                             {/* Select of genres */}
                             <select 
                                 className="form-select"
@@ -53,7 +62,22 @@ export default function Main() {
                                 <option value="Thriller">Thriller</option>
                                 <option value="Romantico">Romantico</option>
                                 <option value="Azione">Azione</option>
+                                <option value="New movie">New movie</option>
                             </select>
+
+                            {/* Adding movie */}
+                            <input
+                                className="my-2" 
+                                placeholder="Add a movie"
+                                type="text"
+                                value={newMovie}
+                                onChange={(e) => setNewMovie(e.target.value)} 
+                            />
+
+                            {/* Button submit */}
+                            <button type="submit">
+                                Submit
+                            </button>
                         </form>
                     </div>
 
