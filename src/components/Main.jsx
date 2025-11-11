@@ -11,10 +11,10 @@ export default function Main() {
     return (
         <>
         <main>
-            <div className="container">
+            <div className="container text-center">
 
                 {/* Card */}
-                <div className="card">
+                <div className="card p-2 w-50">
 
                     {/* Card Top */}
                     <div className="card-top">
