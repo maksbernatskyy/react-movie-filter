@@ -10,7 +10,7 @@ export default function Main() {
 
     return (
         <>
-        <main>
+        <main className="py-3">
             <div className="container text-center">
 
                 {/* Card */}
@@ -30,8 +30,16 @@ export default function Main() {
                     </div>
 
                     {/* Card Body */}
-                    <div className="card-body">
-
+                    <div className="card-body text-start">
+                        <ul>
+                            {
+                                movies.map((thisMovie) => (
+                                    <li className="my-2">
+                                        title: '{thisMovie.title}'; genre: '{thisMovie.genre}'
+                                    </li>
+                                ))
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>
